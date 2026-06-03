@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>preview-recommended</AnalysisLevel>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <!-- CA1707: Underscores in test method names (WhenX_ThenY pattern) -->
+    <!-- CS1591: Missing XML doc on test methods -->
+    <!-- IDE0055: Formatting differences between IDE and CLI builds -->
+    <NoWarn>$(NoWarn);IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008;IDE0130;IDE0305;IDE0055;CA1707;CS1591;NU1900;NU1901;NU1902;NU1903;NU1904</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>9999</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>9999</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <!-- Test framework -->
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <!-- Assemblies under inspection (full module stack) -->
+  <ItemGroup>
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Domain\App.Modules.KWMODULENAME.Domain.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure\App.Modules.KWMODULENAME.Infrastructure.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure.Data.EF\App.Modules.KWMODULENAME.Infrastructure.Data.EF.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Application\App.Modules.KWMODULENAME.Application.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.Models\App.Modules.KWMODULENAME.Interfaces.Models.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.REST\App.Modules.KWMODULENAME.Interfaces.API.REST.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.OData\App.Modules.KWMODULENAME.Interfaces.API.OData.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.GraphQL\App.Modules.KWMODULENAME.Interfaces.API.GraphQL.csproj" />
+    <!-- Add UI.Web reference when that project is created -->
+    <!-- <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.UI.Web\App.Modules.KWMODULENAME.Interfaces.UI.Web.csproj" /> -->
+  </ItemGroup>
+
+</Project>

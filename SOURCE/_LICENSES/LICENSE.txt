@@ -1,0 +1,11 @@
+This software is licensed under the Blue Sky Source Availability License
+(Time-Delayed Open Release) v1.0.
+
+Copyright (c) MachineBrains, Inc. All rights reserved.
+
+Canonical license text:
+https://github.com/machine-brains/LICENSE/blob/main/LICENSE.txt
+
+This file incorporates the license by reference.
+The full license text is maintained in the LICENSE repository
+and applies to all source code in this project.

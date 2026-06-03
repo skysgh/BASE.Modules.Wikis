@@ -1,0 +1,30 @@
+<Project>
+  <!-- Shared build properties for Template module -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>preview-recommended</AnalysisLevel>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Company>MachineBrains, Inc.</Company>
+    <Product>BASE</Product>
+    <Authors>MachineBrains</Authors>
+    <Copyright>Copyright $(Authors)</Copyright>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <!-- Warning suppressions for code analysis -->
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);CS1591;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008;IDE0130;IDE0305;IDE0090;IDE0078;IDE0059;CA1865</NoWarn>
+  </PropertyGroup>
+
+
+  <!-- Include license file in NuGet packages and build output -->
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)_LICENSES\LICENSE.txt" Pack="true" PackagePath="" Link="_LICENSES\LICENSE.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Never" />
+  </ItemGroup>
+</Project>

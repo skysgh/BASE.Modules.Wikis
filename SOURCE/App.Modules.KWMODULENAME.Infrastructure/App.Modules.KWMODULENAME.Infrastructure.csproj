@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>$(AssemblyName)</Title>
+    <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
+      <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
+      <RootNamespace>App.Modules.KWMODULENAME.Infrastructure</RootNamespace>
+      <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008</NoWarn>
+    <!-- Module asset embedding (ManifestEmbeddedFileProvider support) -->
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\readme.md" Pack="True" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Infrastructure\App.Modules.Sys.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="_Packaging\readme.nuget.md">
+      <PackagePath>\</PackagePath>
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domains\X\Configuration\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="_Assets\**" />
+  </ItemGroup>
+
+</Project>

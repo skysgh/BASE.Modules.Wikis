@@ -1,0 +1,51 @@
+name: Dependency Policy Enforcement
+
+on:
+  schedule:
+    - cron: "0 19 * * 1-5"
+  push:
+    paths:
+      - "**/Directory.Packages.props"
+  pull_request:
+    paths:
+      - "**/Directory.Packages.props"
+
+jobs:
+  nuget-outdated:
+    name: NuGet outdated — fail on stale majors
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: "10.x"
+
+      - name: Check for major version drift
+        run: |
+          set +e
+          SLN=$(find . -name "*.sln" 2>/dev/null | head -1)
+          if [ -z "$SLN" ]; then
+            PROPS=$(find . -name "Directory.Packages.props" 2>/dev/null | head -1)
+            TARGET="$PROPS"
+          else
+            TARGET="$SLN"
+          fi
+          OUTPUT=$(dotnet list "$TARGET" package --outdated 2>/dev/null)
+          echo "$OUTPUT"
+          STALE=()
+          while IFS= read -r line; do
+            if [[ "$line" =~ \>[[:space:]]+[^[:space:]]+[[:space:]]+([0-9]+)\.[0-9.]+[[:space:]]+[^ ]+[[:space:]]+([0-9]+)\.[0-9.]+ ]]; then
+              cur="${BASH_REMATCH[1]}"
+              lat="${BASH_REMATCH[2]}"
+              if (( lat > cur )); then
+                STALE+=("$line")
+              fi
+            fi
+          done <<< "$OUTPUT"
+          if [ ${#STALE[@]} -gt 0 ]; then
+            echo "::error::MAJOR version drift detected:"
+            printf '  %s\n' "${STALE[@]}"
+            exit 1
+          fi
+          echo "No major version drift."
