@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>$(AssemblyName)</Title>
+    <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
+    <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008</NoWarn>
+  </PropertyGroup>
+    
+
+
+  <ItemGroup>
+    <None Include="..\..\readme.md" Pack="True" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Shared\App.Modules.Sys.Shared.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Domain\App.Modules.Wikis.Domain.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure.Data.EF\App.Modules.Wikis.Infrastructure.Data.EF.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure\App.Modules.Wikis.Infrastructure.csproj" />    <ProjectReference Include="..\App.Modules.Wikis.Shared\App.Modules.Wikis.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="_Packaging\readme.nuget.md">
+      <PackagePath>\</PackagePath>
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
+
+</Project>

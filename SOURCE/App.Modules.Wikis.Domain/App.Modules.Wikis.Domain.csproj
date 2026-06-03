@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Module asset embedding (ManifestEmbeddedFileProvider support) -->
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <Title>$(AssemblyName)</Title>
+    <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
+            <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Domains\X\**" />
+    <EmbeddedResource Remove="Domains\X\**" />
+    <None Remove="Domains\X\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="_Assets\.gitkeep" />
+    <EmbeddedResource Include="_Assets\signed\.gitkeep" />
+    <EmbeddedResource Include="_Assets\unsigned\.gitkeep" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\readme.md" Pack="True" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Shared\App.Modules.Sys.Shared.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Shared\App.Modules.Wikis.Shared.csproj" />
+  </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Constants\" />
+        <Folder Include="Domains\Examples\Entities\Implementations\" />
+        <Folder Include="Domains\Examples\Settings\" />
+        <Folder Include="Domains\Examples\Repositories\Implementations\" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+    <None Update="_Packaging\readme.nuget.md">
+      <PackagePath>\</PackagePath>
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
+
+</Project>
