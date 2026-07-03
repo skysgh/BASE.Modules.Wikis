@@ -44,7 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.Interfaces.API.REST.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.AppInterfaces.API.REST.csproj" />
     <ProjectReference Include="..\App.Modules.Wikis.Application\App.Modules.Wikis.Application.csproj" />
     <ProjectReference Include="..\App.Modules.Wikis.Shared\App.Modules.Wikis.Shared.csproj" />
   </ItemGroup>

@@ -1,24 +1,24 @@
 using System;
-using System.Linq;
-using App.Modules.Wikis.Domain.Domains.Examples.Configuration.Implementations;
+using App.Modules.Wikis;
+using App.Modules.Wikis.Infrastructure.Persistence.EF;
 using App.Modules.Sys.Initialisation.Implementation.Base;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace App.Modules.Wikis.AppEntry
 {
     /// <summary>
-    /// Example module assembly initialiser for the template logical module.
+    /// Module assembly initialiser for the Wikis logical module.
     /// </summary>
-    /// <remarks>
-    /// This hook exists to show that modules can participate in the startup lifecycle before and after
-    /// the root service provider is built. It should remain the exception, not the normal registration path.
-    /// Reflection-based service discovery is the default and preferred approach.
-    /// </remarks>
+        /// <remarks>
+        /// This hook exists to show that modules can participate in the startup lifecycle before and after
+        /// the root service provider is built. It should remain the exception, not the normal registration path.
+        /// Reflection-based service discovery is the default and preferred approach, including for
+        /// this module's section-bound configuration objects.
+        /// </remarks>
     public class ModuleAssemblyInitialiser : ModuleAssemblyInitialiserBase
     {
         /// <summary>
-        /// Binds the example configuration object before the service provider is built.
+        /// Registers module-specific startup prerequisites before the service provider is built.
         /// </summary>
         /// <param name="services">Service collection available during startup composition.</param>
         /// <remarks>
@@ -30,27 +30,17 @@ namespace App.Modules.Wikis.AppEntry
         {
             ArgumentNullException.ThrowIfNull(services);
 
-            ServiceDescriptor? configurationDescriptor = services.FirstOrDefault(descriptor => descriptor.ServiceType == typeof(IConfiguration));
-            IConfiguration? configuration = configurationDescriptor?.ImplementationInstance as IConfiguration;
-            if (configuration == null)
-            {
-                return;
-            }
-
-            ExampleConfigurationObject exampleConfigurationObject = new ExampleConfigurationObject();
-            configuration.GetSection(ExampleConfigurationObject.SectionPath).Bind(exampleConfigurationObject);
-            services.AddSingleton(exampleConfigurationObject);
+            // Register this module's DbContext via the shared helper (ADR-006).
+            services.AddModuleDbContext<ModuleDbContext>(ModuleConstants.DbSchemaKey);
         }
 
         /// <summary>
-        /// Resolves the example configuration object after the service provider is built.
+        /// Allows post-build module startup participation after the service provider is built.
         /// </summary>
         /// <param name="serviceProvider">Built root service provider.</param>
         public override void DoAfterBuild(IServiceProvider serviceProvider)
         {
             ArgumentNullException.ThrowIfNull(serviceProvider);
-
-            _ = serviceProvider.GetService<ExampleConfigurationObject>();
         }
     }
 }

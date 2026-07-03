@@ -1,0 +1,32 @@
+using App.Modules.Wikis.Domain.Domains.Wikis.Entities.Implementations;
+using App.Modules.Sys.Application.Base;
+using App.Modules.Sys.Infrastructure.Services;
+using App.Modules.Sys.Shared.Domains.Diagnostics;
+using App.Modules.Sys.Shared.Repositories;
+using App.Modules.Wikis.Application.Domains.Wikis.Structures.InTransit.Dtos;
+
+namespace App.Modules.Wikis.Application.Domains.Wikis.Services.Implementations
+{
+    /// <summary>
+    /// Implementation of <see cref="IWikiPageVersionApplicationService"/>.
+    /// </summary>
+    public class WikiPageVersionApplicationService
+        : CrustStateAppServiceBase<WikiPageVersion, WikiPageVersionReadDto, WikiPageVersionWriteDto, WikiPageVersionWriteDto>,
+          IWikiPageVersionApplicationService
+    {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="WikiPageVersionApplicationService"/> class.
+        /// </summary>
+        /// <param name="repository">The WikiPageVersion repository for CRUST persistence.</param>
+        /// <param name="mapper">The object mapping service for ProjectTo and Map.</param>
+        /// <param name="logger">Logger instance for diagnostics.</param>
+        public WikiPageVersionApplicationService(
+            ICrustStateRepository<WikiPageVersion> repository,
+            IObjectMappingService mapper,
+            IAppLogger logger)
+            : base(repository, mapper, logger)
+        {
+        }
+    }
+}

@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
@@ -39,11 +39,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Modules.Wikis.Interface
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Modules.Wikis.Interfaces.API.OData", "App.Modules.Wikis.Interfaces.API.OData\App.Modules.Wikis.Interfaces.API.OData.csproj", "{0821627E-B21B-4E2E-B101-02C2B68166B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Modules.Wikis.Interfaces.API.REST", "App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.Interfaces.API.REST.csproj", "{16353D70-F680-4D18-99BF-1CB5EEDF2309}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Modules.Wikis.Interfaces.API.REST", "App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.AppInterfaces.API.REST.csproj", "{16353D70-F680-4D18-99BF-1CB5EEDF2309}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Modules.Wikis.Interface.UI.Web", "App.Modules.Wikis.Interfaces.UI.Web\App.Modules.Wikis.Interface.UI.Web.csproj", "{95900A0B-2FA1-4D9A-B5AD-10D16535896F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Modules.Wikis.Infrastructure.Data.EF", "App.Modules.Wikis.Infrastructure.Data.EF\App.Modules.Wikis.Infrastructure.Data.EF.csproj", "{E25E2FBC-B458-4866-9527-115624B07629}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Modules.Wikis.Infrastructure.Persistence.EF", "App.Modules.Wikis.Infrastructure.Persistence.EF\App.Modules.Wikis.Infrastructure.Persistence.EF.csproj", "{E25E2FBC-B458-4866-9527-115624B07629}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Modules.Wikis.Domain", "Tests.Modules.Wikis.Domain\Tests.Modules.Wikis.Domain.csproj", "{6B95D46F-B7E5-4033-B846-1F7D1BDA632D}"
 EndProject

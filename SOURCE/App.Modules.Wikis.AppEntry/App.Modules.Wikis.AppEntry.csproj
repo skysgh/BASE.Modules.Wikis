@@ -7,10 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure.Data.EF\App.Modules.Wikis.Infrastructure.Data.EF.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.GraphQL\App.Modules.Wikis.Interfaces.API.GraphQL.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.OData\App.Modules.Wikis.Interfaces.API.OData.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.Interfaces.API.REST.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure.Persistence.EF\App.Modules.Wikis.Infrastructure.Persistence.EF.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.AppInterfaces.API.REST.csproj" />
   </ItemGroup>
 
 </Project>

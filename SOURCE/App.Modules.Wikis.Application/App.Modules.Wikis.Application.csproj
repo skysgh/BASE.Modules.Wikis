@@ -14,11 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Application\App.Modules.Sys.Application.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Infrastructure\App.Modules.Sys.Infrastructure.csproj" />
     <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Shared\App.Modules.Sys.Shared.csproj" />
     <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Domain\App.Modules.Wikis.Domain.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure.Data.EF\App.Modules.Wikis.Infrastructure.Data.EF.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure\App.Modules.Wikis.Infrastructure.csproj" />    <ProjectReference Include="..\App.Modules.Wikis.Shared\App.Modules.Wikis.Shared.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Domain\App.Modules.Wikis.Domain.csproj" />    
+    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure.Persistence.EF\App.Modules.Wikis.Infrastructure.Persistence.EF.csproj" /><ProjectReference Include="..\App.Modules.Wikis.Shared\App.Modules.Wikis.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

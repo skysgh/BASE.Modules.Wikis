@@ -42,13 +42,9 @@
   <ItemGroup>
     <ProjectReference Include="..\App.Modules.Wikis.Shared\App.Modules.Wikis.Shared.csproj" />
     <ProjectReference Include="..\App.Modules.Wikis.Domain\App.Modules.Wikis.Domain.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure\App.Modules.Wikis.Infrastructure.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure.Data.EF\App.Modules.Wikis.Infrastructure.Data.EF.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure.Persistence.EF\App.Modules.Wikis.Infrastructure.Persistence.EF.csproj" />
     <ProjectReference Include="..\App.Modules.Wikis.Application\App.Modules.Wikis.Application.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.Models\App.Modules.Wikis.Interfaces.Models.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.Interfaces.API.REST.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.OData\App.Modules.Wikis.Interfaces.API.OData.csproj" />
-    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.GraphQL\App.Modules.Wikis.Interfaces.API.GraphQL.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.AppInterfaces.API.REST.csproj" />
     <!-- Add UI.Web reference when that project is created -->
     <!-- <ProjectReference Include="..\App.Modules.Wikis.Interfaces.UI.Web\App.Modules.Wikis.Interfaces.UI.Web.csproj" /> -->
   </ItemGroup>
