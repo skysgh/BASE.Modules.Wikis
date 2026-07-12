@@ -29,15 +29,15 @@ namespace Tests.Modules.Wikis.Application.Domains.Wikis.Services
         {
             IAppLogger logger = Substitute.For<IAppLogger>();
 
-            // Authorization is left null deliberately: with no auth service the
-            // CRUST base bypasses the per-method permission demand, keeping these
-            // tests focused on the map -> persist -> map-back orchestration. The
+            // ADR-027: authorization is no longer a constructor-injected demand
+            // mechanism on the CRUST base — it is enforced by the ADR-020
+            // pre-query / pre-commit persistence pipeline instead. These tests
+            // stay focused on the map -> persist -> map-back orchestration; the
             // controller/integration layer is where authorization is exercised.
             return new WikiTemplateAppService(
                 repository,
                 mapper,
-                logger,
-                applicationAuthorizationService: null);
+                logger);
         }
 
         [Fact]

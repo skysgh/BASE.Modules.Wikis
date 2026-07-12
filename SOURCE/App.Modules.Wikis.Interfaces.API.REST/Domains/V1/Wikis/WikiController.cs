@@ -11,6 +11,16 @@ namespace App.Modules.Wikis.Interfaces.API.REST.Domains.V1.Wikis
     /// REST API controller for Wiki root operations.
     /// </summary>
     /// <remarks>
+    /// <b>No authorization attributes on this controller — this is intentional (ADR-027).</b>
+    /// Authorization is a property of the data, not of the endpoint. Reads through this
+    /// controller are filtered by the ADR-020 central pre-query handler against ADR-013
+    /// <c>Share</c> rows; writes are gated by the pre-commit handler in the same pipeline.
+    /// If the caller cannot see or write a row, the persistence layer refuses it — this
+    /// controller does not need to know. See ADR-027 for the full rationale, including
+    /// why <c>[Authorize]</c>, <c>[AllowAnonymous]</c>, <c>[DemandPermission]</c>, and
+    /// <c>[RequirePermission]</c> are forbidden here.
+    /// </remarks>
+    /// <remarks>
     /// Inherits the standard CRUST endpoints from
     /// <see cref="CrudStateControllerBase{TReadDto,TCreateDto,TUpdateDto}"/>.
     /// OData provides filtering, paging, and sorting; global middleware enforces
@@ -41,7 +51,6 @@ namespace App.Modules.Wikis.Interfaces.API.REST.Domains.V1.Wikis
         /// </summary>
         /// <returns>A <see cref="WikiClientConfigReadDto"/> populated from <c>appsettings.json</c>.</returns>
         [HttpGet(ApiRoutes.Rest.V1.Wikis.ClientConfigAction)]
-        [AllowAnonymous]
         public ActionResult<WikiClientConfigReadDto> GetClientConfig()
         {
             return this.Ok(this._wikiApplicationService.GetClientConfig());
