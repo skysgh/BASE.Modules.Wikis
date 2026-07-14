@@ -34,8 +34,9 @@ jobs:
           OUTPUT=$(dotnet list "$TARGET" package --outdated 2>/dev/null)
           echo "$OUTPUT"
           STALE=()
+          PACKAGE_ROW_REGEX='^[[:space:]]*>[[:space:]]+[^[:space:]]+[[:space:]]+([0-9]+)\.[0-9.]+[[:space:]]+[0-9.]+[[:space:]]+([0-9]+)\.[0-9.]+$'
           while IFS= read -r line; do
-            if [[ "$line" =~ \>[[:space:]]+[^[:space:]]+[[:space:]]+([0-9]+)\.[0-9.]+[[:space:]]+[^ ]+[[:space:]]+([0-9]+)\.[0-9.]+ ]]; then
+            if [[ "$line" =~ $PACKAGE_ROW_REGEX ]]; then
               cur="${BASH_REMATCH[1]}"
               lat="${BASH_REMATCH[2]}"
               if (( lat > cur )); then
@@ -43,7 +44,7 @@ jobs:
               fi
             fi
           done <<< "$OUTPUT"
-          if [ ${#STALE[@]} -gt 0 ]; then
+          if [ "${#STALE[@]}" -gt 0 ]; then
             echo "::error::MAJOR version drift detected:"
             printf '  %s\n' "${STALE[@]}"
             exit 1
