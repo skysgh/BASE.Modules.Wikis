@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>preview-recommended</AnalysisLevel>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <!-- CA1707: Underscores in test method names (WhenX_ThenY pattern) -->
+    <!-- CS1591: Missing XML doc on test methods -->
+    <!-- IDE0055: Formatting differences between IDE and CLI builds -->
+    <NoWarn>$(NoWarn);IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008;IDE0130;IDE0305;IDE0055;CA1707;CS1591;NU1900;NU1901;NU1902;NU1903;NU1904</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>9999</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>9999</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <!--
+    STATIC functional tests: run fully in-process.
+    No running host, no network, no real database (EF InMemory is fine).
+    Dynamic (host-level / endpoint / real-infrastructure) tests belong in
+    Tests.Modules.Wikis.Dynamic.
+  -->
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NSubstitute" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <!-- Assemblies under test (full module stack; quality/convention tests scan all of them) -->
+  <ItemGroup>
+    <ProjectReference Include="..\App.Modules.Wikis.Shared\App.Modules.Wikis.Shared.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Domain\App.Modules.Wikis.Domain.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Infrastructure.Persistence.EF\App.Modules.Wikis.Infrastructure.Persistence.EF.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Application\App.Modules.Wikis.Application.csproj" />
+    <ProjectReference Include="..\App.Modules.Wikis.Interfaces.API.REST\App.Modules.Wikis.AppInterfaces.API.REST.csproj" />
+    <!-- Add UI.Web reference when that project is created -->
+    <!-- <ProjectReference Include="..\App.Modules.Wikis.Interfaces.UI.Web\App.Modules.Wikis.Interfaces.UI.Web.csproj" /> -->
+  </ItemGroup>
+
+</Project>
