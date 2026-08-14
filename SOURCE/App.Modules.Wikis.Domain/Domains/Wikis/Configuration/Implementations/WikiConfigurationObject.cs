@@ -26,6 +26,10 @@ namespace App.Modules.Wikis.Domain.Domains.Wikis.Configuration.Implementations
     /// </para>
     /// </remarks>
     [Alias(WikisConfigKeys.Wikis)]
+    [ConfigurationGroupDescription(
+        SectionPath,
+        "Wiki Configuration",
+        "Configuration governing wiki resolution, rendering, editor behavior, and body storage defaults.")]
     public class WikiConfigurationObject : IConfigurationObject
     {
         /// <summary>
