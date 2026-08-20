@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Tests.Modules.Wikis.Static.Helpers;
 using Tests.Modules.Wikis.Static.Quality.Helpers;
 

@@ -20,17 +20,17 @@ namespace App.Modules.Wikis.Domain.Domains.Wikis.Configuration.Implementations
     /// path is <c>App:Domains:Wiki</c>.
     /// </para>
     /// <para>
-    /// Inherits from <see cref="IConfigurationObject"/> (which in turn carries the
+    /// Inherits from <see cref="IConfigurationsGroup"/> (which in turn carries the
     /// singleton lifecycle), so it is discovered and bound by convention rather
     /// than manual startup wiring.
     /// </para>
     /// </remarks>
     [Alias(WikisConfigKeys.Wikis)]
-    [ConfigurationGroupDescription(
+    [ConfigurationsGroupDescription(
         SectionPath,
         "Wiki Configuration",
         "Configuration governing wiki resolution, rendering, editor behavior, and body storage defaults.")]
-    public class WikiConfigurationObject : IConfigurationObject
+    public class WikiConfigurationObject : IConfigurationsGroup
     {
         /// <summary>
         /// Configuration section path for the wiki behaviour settings.

@@ -59,18 +59,20 @@ namespace App.Modules.Wikis.Infrastructure.Domains.Wikis.Configurations
             // Direct wiki scope uses ClientSetNull (emitted as ON DELETE NO ACTION)
             // to avoid a second SQL Server cascade path into WikiAcls; EF still
             // nulls WikiFK for tracked grants at save time.
-            builder.DefineOptionalReference<WikiAcl, Wiki>(
+            builder.DefineOptionalReferenceWithConfiguredFK<WikiAcl, Wiki>(
                 a => a.Wiki,
                 w => w.Acls,
                 a => a.WikiFK,
+                ref order,
                 onDelete: DeleteBehavior.ClientSetNull);
 
             // Page scope is the sole action path reaching WikiAcls through pages,
             // so it keeps database-level SetNull.
-            builder.DefineOptionalReference<WikiAcl, WikiPage>(
+            builder.DefineOptionalReferenceWithConfiguredFK<WikiAcl, WikiPage>(
                 a => a.Page,
                 p => p.Acls,
                 a => a.WikiPageFK,
+                ref order,
                 onDelete: DeleteBehavior.SetNull);
 
             // Phase 5: Indexes.

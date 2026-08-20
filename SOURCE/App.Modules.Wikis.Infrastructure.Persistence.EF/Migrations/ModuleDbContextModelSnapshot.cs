@@ -38,7 +38,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -73,7 +73,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -168,12 +168,12 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         {
                             Id = new Guid("6f61873b-7862-dd7c-ee16-0da2e9700172"),
                             CreatedByPrincipalId = "SYSTEM",
-                            CreatedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Shared, cross-cutting knowledge common to everyone.",
                             Enabled = true,
                             Key = "commons",
                             LastModifiedByPrincipalId = "SYSTEM",
-                            LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             RecordState = 4,
                             Title = "Commons"
                         },
@@ -181,12 +181,12 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         {
                             Id = new Guid("459b165f-0a68-e67f-37cb-0b8720e28494"),
                             CreatedByPrincipalId = "SYSTEM",
-                            CreatedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Developer documentation, spikes, and engineering notes.",
                             Enabled = true,
                             Key = "developers",
                             LastModifiedByPrincipalId = "SYSTEM",
-                            LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             RecordState = 4,
                             Title = "Developers"
                         },
@@ -194,12 +194,12 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         {
                             Id = new Guid("46d654b0-5a0b-45d4-6e20-3cc93ea72d2d"),
                             CreatedByPrincipalId = "SYSTEM",
-                            CreatedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Internal, organisation-facing wiki space.",
                             Enabled = true,
                             Key = "intranet",
                             LastModifiedByPrincipalId = "SYSTEM",
-                            LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             RecordState = 4,
                             Title = "Intranet"
                         },
@@ -207,12 +207,12 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         {
                             Id = new Guid("c88f756c-e1b6-2d6a-5ed3-61c4964642bd"),
                             CreatedByPrincipalId = "SYSTEM",
-                            CreatedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "The default wiki document store.",
                             Enabled = true,
                             Key = "repo1",
                             LastModifiedByPrincipalId = "SYSTEM",
-                            LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             RecordState = 4,
                             Title = "Repository 1"
                         },
@@ -220,12 +220,12 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         {
                             Id = new Guid("07db6a3f-bde1-d772-d162-36a69635611e"),
                             CreatedByPrincipalId = "SYSTEM",
-                            CreatedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Reference material and resource documentation.",
                             Enabled = true,
                             Key = "resources",
                             LastModifiedByPrincipalId = "SYSTEM",
-                            LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             RecordState = 4,
                             Title = "Resources"
                         },
@@ -233,12 +233,12 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         {
                             Id = new Guid("7eee4e19-a93e-6eeb-71d6-79876fe9b55c"),
                             CreatedByPrincipalId = "SYSTEM",
-                            CreatedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Configuration and administration guidance.",
                             Enabled = true,
                             Key = "settings",
                             LastModifiedByPrincipalId = "SYSTEM",
-                            LastModifiedOnDateTimeUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOnUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             RecordState = 4,
                             Title = "Settings"
                         });
@@ -259,7 +259,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -272,7 +272,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -334,10 +334,12 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
 
                     b.Property<Guid?>("WikiFK")
                         .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(12)
                         .HasComment("FK to the root this grant applies to, when the grant is wiki-wide. null when the grant is page-scoped.");
 
                     b.Property<Guid?>("WikiPageFK")
                         .HasColumnType("uniqueidentifier")
+                        .HasColumnOrder(13)
                         .HasComment("FK to the this grant applies to, when the grant is page-scoped. null when the grant is wiki-wide.");
 
                     b.HasKey("Id");
@@ -349,9 +351,11 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                     b.HasIndex("RecordState")
                         .HasDatabaseName("IX_WikiAcls_RecordState");
 
-                    b.HasIndex("WikiFK");
+                    b.HasIndex("WikiFK")
+                        .HasDatabaseName("IX_WikiAcl_WikiFK");
 
-                    b.HasIndex("WikiPageFK");
+                    b.HasIndex("WikiPageFK")
+                        .HasDatabaseName("IX_WikiAcl_WikiPageFK");
 
                     b.HasIndex("PrincipalId", "PrincipalType")
                         .HasDatabaseName("IX_WikiAcls_PrincipalId_PrincipalType");
@@ -401,7 +405,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -421,7 +425,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -548,7 +552,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -561,7 +565,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -668,7 +672,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -700,7 +704,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -855,7 +859,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -868,7 +872,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -972,7 +976,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -985,7 +989,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -1085,7 +1089,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -1120,7 +1124,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -1230,7 +1234,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -1250,7 +1254,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
@@ -1377,7 +1381,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(4)
                         .HasComment("Gets or sets the principal id who created the record.");
 
-                    b.Property<DateTimeOffset>("CreatedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("CreatedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(3)
                         .HasComment("Gets or sets the UTC DateTime created on.");
@@ -1410,7 +1414,7 @@ namespace App.Modules.Wikis.Infrastructure.Migrations
                         .HasColumnOrder(6)
                         .HasComment("Gets or sets the principal id who last modified the record.");
 
-                    b.Property<DateTimeOffset>("LastModifiedOnDateTimeUtc")
+                    b.Property<DateTimeOffset>("LastModifiedOnUtc")
                         .HasColumnType("datetimeoffset")
                         .HasColumnOrder(5)
                         .HasComment("Gets or sets the UTC DateTime when the record was last modified.");
